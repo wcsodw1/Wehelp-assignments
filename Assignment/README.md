@@ -17,14 +17,14 @@ Wehelp Mission
         8. 其餘沒特別說明之處，盡量完成畫面中的設計即可。
 <hr/>
 
-### Assignment2 :
+###  [Assignment2](https://wcsodw1.github.io/Wehelp-assignments/Assignment/Week1/Layout_Flexbox_600-1200.html)<br>
     + 600 像素 < 螢幕解析度的寬度 <= 1200 像素
     + 關鍵細節：
         1. 下方的八個方框，每兩個一列，總寬度必須在 90% 左右 ( 能跟著螢幕縮放 )
         2. 方框中的圖片要能個著方框一起縮放，保持寬度與方框相同。
 <hr/>
 
-### Assignment3 : 
+###  [Assignment3](https://wcsodw1.github.io/Wehelp-assignments/Assignment/Week1/Layout_Flexbox_SmallerThen600.html)<br>
     + 要求三：螢幕解析度的寬度 <= 600 像素
     + 關鍵細節：
         1. 右上方的選單文字，要縮成一張漢堡圖示 (https://www.iconfinder.com/)。
