@@ -3,7 +3,7 @@
 !僅限手機可以看出差異
 (電腦 : 左中右 -->手機 : 上中下)
 */
-@media screen and (min-width:360px) {
+@media screen and (max-width:600px) {
     .horizotal {
         width: 90%;
     }
@@ -23,12 +23,12 @@
 }
 
 .PicText{
+    width:90%;
     font-size: 20px;
     font-weight: bold; /*粗體字*/
     text-align: center;
     align-items:center; /* 垂直對齊 - 置中*/
     margin-top:-5px;
-    width:250px; /*顏色寬度:290*/
     background-color:rgb(230, 230, 18)
 }
 
