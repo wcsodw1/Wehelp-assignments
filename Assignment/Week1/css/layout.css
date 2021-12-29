@@ -21,12 +21,11 @@
 
 .horizonal{
     display: flex;
+    justify-content:center; /* 水平對齊 - 置中*/
 
 }
 
-.text_devide_center{
-    display:flex; 
-}
+
 .text_devide{
     justify-content:left; /*水平對齊-放置中間*/
     font-size: 20px;
