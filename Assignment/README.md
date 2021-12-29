@@ -2,9 +2,7 @@
 Wehelp Mission
 
 ## Week1 : Layout 
-### Assignment1 
-- [Link](https://wcsodw1.github.io/Wehelp-assignments/Assignment/Week1/Layout_Flexbox_PC.html)<br>
-- [14:15 Assist](https://www.youtube.com/watch?v=uZ5FBY3MQkE#t=14m15s)<br>
+###  [Assignment1](https://wcsodw1.github.io/Wehelp-assignments/Assignment/Week1/Layout_Flexbox_PC.html)<br>
     + 螢幕解析度的寬度 > 1200 像素
     + 關鍵細節：
         1. 圖示中的紅色標線和尺寸，不用做在網頁中。
