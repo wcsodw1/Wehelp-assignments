@@ -55,7 +55,7 @@
 .item{
     /*background-color: rgb(236, 158, 158);*/
     flex:none; 
-    width:0px; /*item框框寬度*/
+    width:2%; /*item框框寬度*/
     margin-right:35px; /*項目後多一個空間*/
     text-align:center; /*自體置中*/
 }
