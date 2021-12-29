@@ -52,7 +52,7 @@
     display:flex; 
     flex:auto; /*自動把剩下空間填滿:建議使用此/
     flex:none; /*固定配置*/
-    width:20%;
+    /*width:20%;
     /*width:400px;*/ 
     /*background-color: #4e6fdb;*/
 
