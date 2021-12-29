@@ -3,8 +3,8 @@ Wehelp Mission
 
 ## Week1 : Layout 
 ### Assignment1 
-
-    + [ Link ](https://wcsodw1.github.io/Wehelp-assignments/Assignment/Week1/Layout_Flexbox_PC.html) 
+- [Link](https://wcsodw1.github.io/Wehelp-assignments/Assignment/Week1/Layout_Flexbox_PC.html)<br>
+- [14:15 Assist](https://www.youtube.com/watch?v=uZ5FBY3MQkE#t=14m15s)<br>
     + 螢幕解析度的寬度 > 1200 像素
     + 關鍵細節：
         1. 圖示中的紅色標線和尺寸，不用做在網頁中。
@@ -17,14 +17,14 @@ Wehelp Mission
         7. 下方的八個方框高度相同，其中放任意一張圖片和一行文字，文字置中。圖片寬度和
         方框相同，保持圖片原始比例，不能有變形的情況。
         8. 其餘沒特別說明之處，盡量完成畫面中的設計即可。
-</hr>
+<hr/>
 
 ### Assignment2 :
     + 600 像素 < 螢幕解析度的寬度 <= 1200 像素
     + 關鍵細節：
         1. 下方的八個方框，每兩個一列，總寬度必須在 90% 左右 ( 能跟著螢幕縮放 )
         2. 方框中的圖片要能個著方框一起縮放，保持寬度與方框相同。
-</hr>
+<hr/>
 
 ### Assignment3 : 
     + 要求三：螢幕解析度的寬度 <= 600 像素
