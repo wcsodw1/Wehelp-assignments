@@ -8,13 +8,15 @@
 @media screen and (max-width:1200px) {
     .horizonal {
         width: 90%;
-        text-align: center;
-        justify-content:center; /* 水平對齊 - 置中*/
-        display:flex;
     }
 }
 
-/*下面為上方物件之設定(hello my home區塊)*/
+.center{
+    justify-content:center; /* 水平對齊 - 置中*/
+    text-align: center;
+}
+
+/*(區隔)下面為上方物件之設定(hello my home區塊)*/
 
 .frame{
     display:flex; /*水平對齊 : 讓項目得以水平排列(而不會被div換行)*/
