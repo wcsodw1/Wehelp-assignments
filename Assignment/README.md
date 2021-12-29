@@ -1,8 +1,10 @@
 # Wehelp-assignments
 Wehelp Mission
 
-## Week1 : Layout
-### Assignment1 : 
+## Week1 : Layout 
+### Assignment1 
+
+    + [ Link ](https://wcsodw1.github.io/Wehelp-assignments/Assignment/Week1/Layout_Flexbox_PC.html) 
     + 螢幕解析度的寬度 > 1200 像素
     + 關鍵細節：
         1. 圖示中的紅色標線和尺寸，不用做在網頁中。
