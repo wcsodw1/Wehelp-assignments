@@ -25,7 +25,7 @@
     font-size: 200%;
     font-weight: bold; /*粗體字*/
     width:45%; /*顏色寬度*/
-    margin-right: 10px; /*項目後多一個空間*/
+    margin-right: 1%; /*項目後多一個空間*/
     margin-top: -5px;
     justify-content: center; /*水平對齊-放置中間*/
     background-color: rgb(230, 230, 18);
@@ -34,7 +34,7 @@
 
 .text_right{
     font-size: 200%;
-    margin-left: 10px; /*項目後多一個空間*/
+    margin-left: 1%; /*項目後多一個空間*/
     font-weight: bold; /*粗體字*/
     text-align: center;
     /*align-items: center; /* 垂直對齊-置中*/

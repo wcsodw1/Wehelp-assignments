@@ -24,7 +24,7 @@
 
 .PicText{
     width:90%;
-    font-size: larger;
+    font-size: 400%;
     font-weight: bold; /*粗體字*/
     text-align: center;
     align-items:center; /* 垂直對齊 - 置中*/
@@ -38,18 +38,21 @@
     display:flex; /*水平對齊 : 讓項目得以水平排列(而不會被div換行)*/
 }
 
-.right{
+.rightTop{
     display:flex; 
     justify-content:flex-end; /* 水平對齊 放置右側*/
     flex:auto; /*自動把剩下空間填滿:建議使用此*/
-    font-size: 20px;
+    font-size: 400%;
+    align-items:center; /* 垂直對齊 - 置中*/
 }
 
-.left{
-    font-size: 20px;
+.leftTop{
+    font-size: 200%;
     display:flex; 
-    flex:auto; /*自動把剩下空間填滿:建議使用此/
+    flex:auto; /*自動把剩下空間填滿:建議使用此*/
+    font-weight: bold; /*粗體*/
     flex:none; /*固定配置*/
+    align-items:center; /* 垂直對齊 - 置中*/
 }
 
 .item{
@@ -71,11 +74,12 @@
 }
 
 .text_{
-    width:300px;
-    font-size:40px;
+    display:flex;
+    width:1000px;
+    font-size: 400%;
+    justify-content:center; /* 水平對齊 - 置中*/
     text-align: center;
-    align-items:center; /* 垂直對齊 - 置中*/
-    font-weight: bold;
+    font-weight: bold; /*粗體*/
 }
 
 
