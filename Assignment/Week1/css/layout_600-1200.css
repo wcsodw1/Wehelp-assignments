@@ -22,26 +22,26 @@
     flex:auto; /*自動把剩下空間填滿:建議使用此*/
 }
 .text_left{
-    padding:0px 0px 0px 3px;
-    font-size: 20px;
+    font-size: 200%;
     font-weight: bold; /*粗體字*/
-    width:250px; /*顏色寬度:290*/
-    margin-right:5px; /*項目後多一個空間*/
-    margin-top:-15px;
-    justify-content:center; /*水平對齊-放置中間*/
-    background-color:rgb(230, 230, 18);
+    width:45%; /*顏色寬度*/
+    margin-right: 10px; /*項目後多一個空間*/
+    margin-top: -5px;
+    justify-content: center; /*水平對齊-放置中間*/
+    background-color: rgb(230, 230, 18);
+    /*padding: 0px 0px 0px 0px;*/
 }
 
 .text_right{
-    padding:0px 3px 0px 0px;
-    font-size: 20px;
-    margin-left:5px; /*項目後多一個空間*/
+    font-size: 200%;
+    margin-left: 10px; /*項目後多一個空間*/
     font-weight: bold; /*粗體字*/
     text-align: center;
-    align-items:center; /* 垂直對齊 - 置中*/
-    margin-top:-15px;
-    width:250px; /*顏色寬度:290*/
-    background-color:rgb(230, 230, 18)
+    /*align-items: center; /* 垂直對齊-置中*/
+    margin-top: -5px;
+    width:45%; /*顏色寬度*/
+    background-color: rgb(230, 230, 18)
+    /*padding: 0px 0px 0px 0px;*/
 }
 
 /*(區隔)下面為上方物件之設定(hello my home區塊)*/
@@ -53,7 +53,6 @@
 .right{
     display:flex; 
     justify-content:flex-end; /* 水平對齊 放置右側*/
-    /*background-color:turquoise;*/
     flex:auto; /*自動把剩下空間填滿:建議使用此/
     /*width:50%;*/
     font-size: 20px;

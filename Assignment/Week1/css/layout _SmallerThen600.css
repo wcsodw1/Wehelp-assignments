@@ -24,7 +24,7 @@
 
 .PicText{
     width:90%;
-    font-size: 20px;
+    font-size: larger;
     font-weight: bold; /*粗體字*/
     text-align: center;
     align-items:center; /* 垂直對齊 - 置中*/
