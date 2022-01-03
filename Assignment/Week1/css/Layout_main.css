@@ -12,13 +12,12 @@
     flex:auto; /*自動把剩下空間填滿:建議使用(與justify-content:flex-end 搭配將物件至於右側並自由填補中間空缺)*/
     justify-content:flex-end; /*放置右側(文字,圖片...)*/
     /*background-color:#BFEFFF;*/
-    margin-right: auto;
 }
 
 /* 包在rightTop裡面 */
 .itemBox{
     flex:none; 
-    width:7%; /*item框框寬度*/
+    width:9%; /*item框框寬度*/
     margin-left: 30px; /*項目後多一個空間*/
     text-align:right; /*字體置中*/
     justify-content:flex-end; /* 水平對齊 放置右側*/
