@@ -1,0 +1,23 @@
+Table{
+    /*box layout相關*/
+    margin: 10px; /*Box外框邊緣間距*/
+    padding: 10px; /*Box內框邊緣間距*/
+    width:7%; /*Box寬度*/
+    height: 150px; /*Box內框高度*/
+    flex:auto; /*自動符合排版寬度伸縮*/
+    display: none; /*關閉box中資訊*/
+
+
+    /*color相關*/
+    color: white;
+    background-color:#BFEFFF; /*Box內背景顏色*/ /*推薦背景色: https://blog.csdn.net/liaomin416100569/article/details/6661830*/
+    
+    /*字體相關*/
+    line-height: 0px;
+    font-size: 20px; /*字體大小*/
+    text-align: center; /*文字水平置中*/
+    font-family: monospace;/*字形變化*/
+    /*display: inline-block;*/
+
+
+}

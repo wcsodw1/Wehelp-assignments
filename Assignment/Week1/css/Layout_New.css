@@ -1,0 +1,135 @@
+
+.box{
+    display:flex;
+    width: 270px;
+    margin: 10px;
+    background-color: #292a2b;
+    color: #e6e6e6;
+    font-family: monospace;/*字形變化*/
+    display: inline-block;
+    text-align: center;
+    justify-content:center; /* 水平對齊 flex-end(放置右側), center(對中間), flex-start(放置左側) */
+    line-height: 20px;
+    font-size: 20px;
+    flex:auto; /*自動把剩下空間填滿:建議使用此*/
+    /*padding: 10px;*/
+    /*speak: literal-punctuation;*/
+    /* Reads all punctuation out loud in iOS VoiceOver */
+}
+
+
+
+/* Main樣式設定 */
+main{ /*容器*/
+    flex-wrap:wrap;/*自動換行功能*/
+}
+
+main>.box{ /*項目*/
+    margin:1%;
+    margin-top:1%;
+    align-items:center; /* 垂直對齊 - strech(延展), flex-end(靠下側), center(對中間), flex-start(靠上方)*/
+    justify-content:center; /* 水平對齊 flex-end(放置右側), center(對中間), flex-start(放置左側) */
+}
+
+
+@media (max-width:1200px){
+    main>.box{
+        width: 45%;
+        background-color: aquamarine;
+    }
+    img{
+        width: 100%;
+    }
+}
+
+@media (max-width:600px){
+    main>.box{
+        width: 90%;
+    }
+    img{
+        width: 100%;
+    }
+}
+
+/* ======================== */
+
+.Top{
+    display:flex; /*水平對齊 : 讓項目得以水平排列(而不會被div換行)*/
+}
+
+.leftTop{
+    font-size: 20px;
+    font-weight: bold; /*粗體*/
+    flex:none; /*固定配置*/
+    align-items:center; /* 垂直對齊 - 置中*/
+}
+
+.rightTop{
+    display:flex; /*將物件水平放置*/
+    justify-content:flex-end; /* 水平對齊 放置右側*/
+    flex:auto; /*自動把剩下空間填滿:建議使用此*/
+    font-size: 20px;
+    align-items:center; /* 垂直對齊 - 置中*/
+    font-weight: bold; /*粗體*/
+}
+
+.itemBox{
+    /*background-color: rgb(236, 158, 158);*/
+    flex:none; 
+    width:7%; /*item框框寬度*/
+    margin-left:50px; /*項目後多一個空間*/
+    text-align:right; /*字體置中*/
+    justify-content:flex-end; /* 水平對齊 放置右側*/
+}
+
+/* Welcome Area */
+.welcome_area{
+    font-size: 40px;
+    height:300px;
+    display:flex;
+    justify-content:center; /* 水平對齊 - 置中*/
+    align-items:center; /* 垂直對齊 - 置中*/
+    background-color: darkkhaki;
+    /*flex:auto; /*自動把剩下空間填滿:建議使用此*/
+}
+
+.welcome_text{
+    justify-content:center; /* 水平對齊 - 置中*/
+    text-align: center;
+    font-weight: bold; /*粗體*/
+    width:1000px;
+}
+
+/* ======================== */
+
+/*(!!!)寬度設定 : 
+概念 : 限制寬度為600-1200 超出下放圖表
+!僅限手機可以看出差異
+(電腦 : 左中右 -->手機 : 上中下)
+*/
+
+/* nav樣式設定 */
+nav{
+    display: flex;
+}
+
+nav>.Logo{
+    flex:none;
+    background-color:black;
+}
+nav>.Menu{
+    flex:auto; /*自動符合排版寬度伸縮*/
+    background-color:brown;
+    text-align: center; /*文字水平置中*/
+}
+nav>.User{
+    flex:none;
+    background-color:cadetblue;
+}
+
+
+
+
+
+
+

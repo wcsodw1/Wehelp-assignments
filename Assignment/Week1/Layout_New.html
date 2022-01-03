@@ -1,0 +1,95 @@
+<!--
+    A.網頁切版的關鍵思考 : 
+    針對區塊型(block)標籤(div!!)作配置
+    問題1 : 直向排列 > 橫向排列
+    問題2 : 水平對齊
+    問題3 : 垂直對齊
+
+    B.Flexbox的核心設定 : 
+    1.將容器中的項目並排(如何把直向排列變成橫向排列) : 水平排列容器中的一到多個項目
+    2.決定項目的寬度配置 : 固定寬度, 彈性縮放配置
+    3.多層次的結構 : 每個層次都要獨立看待, 處理
+
+    C.對齊方式 : 
+    1.水平對齊 : 在容器上使用Justify-content屬性
+    2.垂直對齊 : 在容器上使用align-items屬性 
+    3.完美置中 : 同時水平和垂直置中(Justify-content:center, align-items:center)
+
+    D.(!!)RWD 回應式設計的關鍵動作 : 欄位變化
+        Flex 如何控制欄位的變化?
+        例如:4欄 > 2欄 > 1欄
+
+        規劃 : 
+        1200px 以上的規劃:4欄, 固定尺寸
+        600-1200px 之間的規劃:2欄, 彈性尺寸
+        600px 以上:1欄, 彈性尺寸
+-->
+
+<!--Tutorial-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width-device-width, initial-scale=1.0"> <!-- 控制版面縮放 不讓版面隨意縮放-->
+    <meta charset="utf-8" /> <!-- 萬國碼 : 可打中文-->
+    <title>螢幕解析度的寬度 > 1200 像素</title>
+    <link rel="stylesheet" type="text/css" href="css/Layout_New.css" />
+    <!--link : 連結css-->
+</head>
+
+<body>
+    <div class="Top">
+        <div class="leftTop">My Website</div>
+        <div class="rightTop">
+            <div class="Menu"></div>
+            <div class="itemBox">Item1 </div>
+            <div class="itemBox">Item2 </div>
+            <div class="itemBox">Item3 </div>
+            <div class="itemBox">Item4 </div>
+        </div>
+    </div>
+
+    <div class="welcome_area">
+        <div class="welcome_text">Welcome to MyHome</div>
+    </div>
+
+    <main>
+        <div class="box">
+            <img src="img/cebu_resize.jpg" width=270px>
+            <div> Title1 </div>
+        </div>
+        <div class="box">
+            <img src="img/cebu_resize.jpg" width=270px>
+            <div> Title2 </div>
+        </div>
+        <div class="box">
+            <img src="img/cebu_resize.jpg" width=270px>
+            <div> Title3 </div>
+        </div>
+        <div class="box">
+            <img src="img/cebu_resize.jpg" width=270px>
+            <div> Title4 </div>
+        </div>
+    </main>
+    <main>
+        <div class="box">
+            <img src="img/cebu_resize.jpg" width=270px>
+            <div> Title5 </div>
+        </div>
+        <div class="box">
+            <img src="img/cebu_resize.jpg" width=270px>
+            <div> Title6 </div>
+        </div>
+        <div class="box">
+            <img src="img/cebu_resize.jpg" width=270px>
+            <div> Title7 </div>
+        </div>
+        <div class="box">
+            <img src="img/cebu_resize.jpg" width=270px>
+            <div> Title8 </div>
+    </main>
+
+</body>
+
+</html>

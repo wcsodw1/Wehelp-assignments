@@ -1,94 +1,109 @@
-.frame{
+
+/*============== Top Region =============*/
+.Top{
     display:flex; /*水平對齊 : 讓項目得以水平排列(而不會被div換行)*/
-}
-
-.text_{
-    width:300px;
-    font-size:40px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.welcome_area{
-    display:flex;
-    justify-content:center; /* 水平對齊 - 置中*/
+    font-weight: bold; /*粗體*/
+    font-size: 20px; /*字體大小*/
     align-items:center; /* 垂直對齊 - 置中*/
-    height:300px;
-    /*width:1200px;*/
-    background-color: darkkhaki;
-    flex:auto; /*自動把剩下空間填滿:建議使用此*/
 }
 
-.horizonal{
-    display: flex;
-    justify-content:center; /* 水平對齊 - 置中*/
+.rightTop{
+    display:flex; /*將物件水平放置*/
+    flex:auto; /*自動把剩下空間填滿:建議使用(與justify-content:flex-end 搭配將物件至於右側並自由填補中間空缺)*/
+    justify-content:flex-end; /*放置右側(文字,圖片...)*/
+    /*background-color:#BFEFFF;*/
+    margin-right: auto;
 }
 
-
-.text_devide{
-    justify-content:left; /*水平對齊-放置中間*/
-    font-size: 20px;
-    margin-left:300px; /*項目後多一個空間*/
-    width:0px; 
-    padding:5px 0px;
-    background-color:rgb(230, 230, 18)
-    /*background-color:turquoise;*/
-    /*width:50%;*/
-    /*width:0px; /*text_devide 文字與空格之寬度*/
-    /*flex:auto; /*自動把剩下空間填滿:建議使用此/
-    /*text-align:center; /*自體置中*/
-    /*flex:none;*/ 
-}
-
-.text_devide_left{
-    justify-content:center; /*水平對齊-放置中間*/
-    font-size: 20px;
-    text-align:center; /*字體置中*/
-    width:290px; /*顏色寬度:290*/
-    margin-left:5px;
-    margin-right:5px;
-    padding:5px 0px;
-    background-color:rgb(230, 230, 18);
-}
-
-
-.right{
-    display:flex; 
-    justify-content:flex-end; /* 水平對齊 放置右側*/
-    /*background-color:turquoise;*/
-    flex:auto; /*自動把剩下空間填滿:建議使用此/
-    /*width:50%;*/
-    font-size: 20px;
-}
-
-.left{
-    /*background-color: #4e6fdb;*/
-    flex:none; /*固定配置*/
-    /*width:400px;*/ 
-    width:20%;
-    font-size: 20px;
-}
-
-.item{
-    /*background-color: rgb(236, 158, 158);*/
+/* 包在rightTop裡面 */
+.itemBox{
     flex:none; 
-    width:100px; /*item框框寬度*/
-    margin-right:10px; /*項目後多一個空間*/
-    text-align:center; /*自體置中*/
+    width:7%; /*item框框寬度*/
+    margin-left: 30px; /*項目後多一個空間*/
+    text-align:right; /*字體置中*/
+    justify-content:flex-end; /* 水平對齊 放置右側*/
 }
 
-/*(!!!)寬度設定 : 
-概念 : 限制寬度為1200p(電腦 : 左中右 -->手機 : 上中下)
-*/
-@media screen and (max-width:1200px) {
-    .content {
+.leftTop{
+    flex:none; /*固定配置*/
+    display:block
+}
+
+.hamber_icon{
+    display: none;
+}
+
+/*============== Welcome Home Region ============== */
+/* Welcome Area */
+.welcome_area{
+    display:flex; 
+    align-items:center; /* 垂直對齊 - 置中*/
+    justify-content:center; /* 水平對齊 - 置中*/
+    font-weight: bold; /*字體粗體*/
+    font-size: 40px; /*字體大小*/
+    height:300px; /*Box內框高度*/
+    background-color: darkkhaki;
+    width:auto; /*text總寬度*/
+}
+
+.welcome_text{
+    text-align: center; /*文字置中*/
+    justify-content:center; /* 水平對齊 - 置中*/
+    flex:auto; /*文字會隨著排版而自動換行*/   
+}
+
+/*============== Picture & Image Region ============== */
+
+/* Flexbox樣式設定 */
+.Flexbox{ /*容器*/
+    display:flex; 
+    flex-wrap:wrap;/*自動換行功能*/
+    align-items:center; /* 垂直對齊 - strech(延展), flex-end(靠下側), center(對中間), flex-start(靠上方)*/
+    justify-content:center; /* 水平對齊 flex-end(放置右側), center(對中間), flex-start(放置左側) */
+}
+
+.Flexbox>.box{ /*項目*/
+    margin:1%;
+    margin-top:1%;
+}
+
+.box{
+    /*字體*/
+    font-size: 20px;
+    color: #e6e6e6;
+    font-weight: bold; /*字體粗體*/
+    text-align: center; /*文字水平置中*/
+
+    /*Box*/
+    width: 270px;
+    background-color:#8B475D;
+    align-items:center; /* 垂直對齊 - 置中*/
+}
+
+@media (max-width:1200px){
+    .Flexbox>.box{
+        width: 45%;
+    }
+    img{
         width: 100%;
-        text-align: center;
+    }
+    
+}
+
+@media (max-width:600px){
+    .Flexbox>.box{
+        width: 90%;
+    }
+    img{
+        width: 100%;
+    }
+    .itemBox{
+        display: none;
+    }
+    .hamber_icon{
+        display:grid;
+        width:30px;
+        grid-template-columns: 20px;
+
     }
 }
-
-
-
-
-
-
