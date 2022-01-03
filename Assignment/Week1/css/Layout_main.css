@@ -107,22 +107,3 @@ main>.box{ /*項目*/
 !僅限手機可以看出差異
 (電腦 : 左中右 -->手機 : 上中下)
 */
-
-/* nav樣式設定 */
-nav{
-    display: flex;
-}
-
-nav>.Logo{
-    flex:none;
-    background-color:black;
-}
-nav>.Menu{
-    flex:auto; /*自動符合排版寬度伸縮*/
-    background-color:brown;
-    text-align: center; /*文字水平置中*/
-}
-nav>.User{
-    flex:none;
-    background-color:cadetblue;
-}
