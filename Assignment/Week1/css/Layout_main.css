@@ -1,45 +1,93 @@
 
-.box{
-    display:flex;
-    width: 270px;
-    margin: 10px;
-    background-color: #292a2b;
-    color: #e6e6e6;
-    font-family: monospace;/*字形變化*/
-    display: inline-block;
-    text-align: center;
-    justify-content:center; /* 水平對齊 flex-end(放置右側), center(對中間), flex-start(放置左側) */
-    line-height: 20px;
-    font-size: 20px;
-    flex:auto; /*自動把剩下空間填滿:建議使用此*/
-    /*padding: 10px;*/
-    /*speak: literal-punctuation;*/
-    /* Reads all punctuation out loud in iOS VoiceOver */
+/*============== Top Region =============*/
+.Top{
+    display:flex; /*水平對齊 : 讓項目得以水平排列(而不會被div換行)*/
+    font-weight: bold; /*粗體*/
+    font-size: 20px; /*字體大小*/
+    align-items:center; /* 垂直對齊 - 置中*/
 }
 
+.rightTop{
+    display:flex; /*將物件水平放置*/
+    flex:auto; /*自動把剩下空間填滿:建議使用(與justify-content:flex-end 搭配將物件至於右側並自由填補中間空缺)*/
+    justify-content:flex-end; /*放置右側(文字,圖片...)*/
+    /*background-color:#BFEFFF;*/
+    margin-right: auto;
+}
+
+/* 包在rightTop裡面 */
+.itemBox{
+    flex:none; 
+    width:7%; /*item框框寬度*/
+    margin-left: 30px; /*項目後多一個空間*/
+    text-align:right; /*字體置中*/
+    justify-content:flex-end; /* 水平對齊 放置右側*/
+}
+
+.leftTop{
+    flex:none; /*固定配置*/
+    display:block
+}
+
+.hamber_icon{
+    display: none;
+}
+
+/*============== Welcome Home Region ============== */
+/* Welcome Area */
+.welcome_area{
+    display:flex; 
+    align-items:center; /* 垂直對齊 - 置中*/
+    justify-content:center; /* 水平對齊 - 置中*/
+    font-weight: bold; /*字體粗體*/
+    font-size: 40px; /*字體大小*/
+    height:300px; /*Box內框高度*/
+    background-color: darkkhaki;
+    width:auto; /*text總寬度*/
+}
+
+.welcome_text{
+    text-align: center; /*文字置中*/
+    justify-content:center; /* 水平對齊 - 置中*/
+    flex:auto; /*文字會隨著排版而自動換行*/   
+}
+
+/*============== Picture & Image Region ============== */
 
 
 /* Main樣式設定 */
 main{ /*容器*/
+    display:flex; 
     flex-wrap:wrap;/*自動換行功能*/
+    align-items:center; /* 垂直對齊 - strech(延展), flex-end(靠下側), center(對中間), flex-start(靠上方)*/
+    justify-content:center; /* 水平對齊 flex-end(放置右側), center(對中間), flex-start(放置左側) */
 }
 
 main>.box{ /*項目*/
     margin:1%;
     margin-top:1%;
-    align-items:center; /* 垂直對齊 - strech(延展), flex-end(靠下側), center(對中間), flex-start(靠上方)*/
-    justify-content:center; /* 水平對齊 flex-end(放置右側), center(對中間), flex-start(放置左側) */
 }
+.box{
+    /*字體*/
+    font-size: 20px;
+    color: #e6e6e6;
+    font-weight: bold; /*字體粗體*/
+    text-align: center; /*文字水平置中*/
 
+    /*Box*/
+    width: 270px;
+    background-color:#8B475D;
+    align-items:center; /* 垂直對齊 - 置中*/
+}
 
 @media (max-width:1200px){
     main>.box{
         width: 45%;
-        background-color: aquamarine;
     }
     img{
         width: 100%;
     }
+    
 }
 
 @media (max-width:600px){
@@ -49,61 +97,12 @@ main>.box{ /*項目*/
     img{
         width: 100%;
     }
+    .itemBox{
+        display: none;
+    }
+    .hamber_icon{
+        display:grid;
+        width:30px;
+        grid-template-columns: 20px;
+    }
 }
-
-/* ======================== */
-
-.Top{
-    display:flex; /*水平對齊 : 讓項目得以水平排列(而不會被div換行)*/
-}
-
-.leftTop{
-    font-size: 20px;
-    font-weight: bold; /*粗體*/
-    flex:none; /*固定配置*/
-    align-items:center; /* 垂直對齊 - 置中*/
-}
-
-.rightTop{
-    display:flex; /*將物件水平放置*/
-    justify-content:flex-end; /* 水平對齊 放置右側*/
-    flex:auto; /*自動把剩下空間填滿:建議使用此*/
-    font-size: 20px;
-    align-items:center; /* 垂直對齊 - 置中*/
-    font-weight: bold; /*粗體*/
-}
-
-.itemBox{
-    /*background-color: rgb(236, 158, 158);*/
-    flex:none; 
-    width:7%; /*item框框寬度*/
-    margin-left:50px; /*項目後多一個空間*/
-    text-align:right; /*字體置中*/
-    justify-content:flex-end; /* 水平對齊 放置右側*/
-}
-
-/* Welcome Area */
-.welcome_area{
-    font-size: 40px;
-    height:300px;
-    display:flex;
-    justify-content:center; /* 水平對齊 - 置中*/
-    align-items:center; /* 垂直對齊 - 置中*/
-    background-color: darkkhaki;
-    /*flex:auto; /*自動把剩下空間填滿:建議使用此*/
-}
-
-.welcome_text{
-    justify-content:center; /* 水平對齊 - 置中*/
-    text-align: center;
-    font-weight: bold; /*粗體*/
-    width:1000px;
-}
-
-/* ======================== */
-
-/*(!!!)寬度設定 : 
-概念 : 限制寬度為600-1200 超出下放圖表
-!僅限手機可以看出差異
-(電腦 : 左中右 -->手機 : 上中下)
-*/
