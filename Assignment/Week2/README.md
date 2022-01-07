@@ -4,9 +4,9 @@ Wehelp Mission
 ## Week2 : Algorithm
 
 Python program : 
-[Python](Week2/python/)
+[Python](python/README.md)
 <hr/>
 
 Javascript program : 
-[Javascript](Week2/javascript/)
+[Javascript](javascript/README.md)
 <hr/>
