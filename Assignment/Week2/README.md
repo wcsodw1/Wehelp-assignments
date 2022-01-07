@@ -8,5 +8,5 @@ Python program :
 <hr/>
 
 Javascript program : 
-[Javascript](javascript/README.md)
+[Javascript](javascript/)
 <hr/>
