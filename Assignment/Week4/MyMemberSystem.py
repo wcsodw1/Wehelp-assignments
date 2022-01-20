@@ -30,7 +30,7 @@ data = database.wehelp  # 創建(新增) or 搜尋資料庫裡面的"集合"名�
 #     "email": "wcsodw1@gmail.com",
 #     "password": "wehelp123"
 # })
-print("< ============== 連線至資料庫修改data成功 ============== >")
+print("< ============== 連線至資料庫(修改)data成功 ============== >")
 
 #   2.3 設定session密鑰 : 密秘鑰匙
 app.secret_key = "Any string but secret"  # 設定 Session 的秘鑰

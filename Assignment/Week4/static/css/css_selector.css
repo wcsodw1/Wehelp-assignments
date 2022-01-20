@@ -9,6 +9,7 @@
     text-align: center;
     padding: 30px; /* title上下的背景框框高度 */
 }
+/*=============================================*/
 
 /*2.登入系統文字設定*/
 .loginText {
@@ -17,7 +18,7 @@
     text-align: center;
     padding: 30px; /* title上下的背景框框高度 */
 }
-
+/*=============================================*/
 
 /*3.表單設計*/
 .form {
@@ -49,6 +50,7 @@ form>input:valid+.Done {
 form>input:invalid+.Done {
     display: none;
 }
+/*=============================================*/
 
 
 /*4.RWD手機寬度設定 : 
