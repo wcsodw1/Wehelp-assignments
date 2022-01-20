@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員系統首頁</title>
+
+    <link rel="stylesheet" type="text/css" href="css/css_selector.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css_selector.css') }}" /> -->
+
+</head>
+
+<body style="margin:0px; background-color:#eeeeee">
+    <!-- 
+            # A.無邊際頂部 : <body style="margin:0px;">
+            # B.Body背景底部顏色
+            # C.
+        -->
+    <div class="top">
+        歡迎光臨，請輸入帳號密碼
+    </div>
+    <div class="loginText">
+        登入系統
+    </div>
+    <div class="form">
+        <form action="/signin" method="POST">
+            帳號: <input type="text" name="email" />
+            <br />
+            密碼: <input type="password" name="password" />
+            <br />
+            <button>登入</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
