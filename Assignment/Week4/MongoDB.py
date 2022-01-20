@@ -1,5 +1,5 @@
 
-# python MongoDB.py
+# python MongoDB.py(資料庫連線測試)
 
 # 登入pymongo :
 import pymongo
