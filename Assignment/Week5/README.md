@@ -52,7 +52,7 @@ cmd : SELECT AVG(follower_count) FROM member;
 
 # 4.4, 4.5 MAX & MIN : Extra(額外)
 SELECT MAX(follower_count) FROM member;
-SELECT MIN(follower_count) FROM member;
+SELECT MIN(follower_count) FROM member;<br>
  ![image](./img/Task4_4-5countMemberNumber.PNG)
  
 ## 要求五：SQL JOIN (Optional) :
