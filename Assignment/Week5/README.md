@@ -47,7 +47,7 @@ cmd : SELECT COUNT(test2) FROM member;
 cmd : SELECT SUM(follower_count) FROM member;
 
 # 4.3 取得 member 資料表中，所有會員 follower_count 欄位的平均數
-cmd : SELECT AVG(follower_count) FROM member;
+cmd : SELECT AVG(follower_count) FROM member;<br>
   ![4-1~4-3](./img/Task4_1-3_count_sum_avg_MemberNumber.PNG)
 
 # 4.4, 4.5 MAX & MIN : Extra(額外)
