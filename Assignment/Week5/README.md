@@ -7,6 +7,11 @@
 
 ### 要求三：SQL CRUD
 
+#### 3.1 使用 INSERT 指令新增資料 : 
+
+![image](./img/Task3-1_InsertTableData.PNG)
+![image](./img/Task3-1_InsertTableData2.PNG)
+
 #### 3.2 : 使用 SELECT 指令取得所有在 member 資料表中的會員資料。
 cmd : SELECT * FROM member; <br>
  ![image](./img/Task3-2_selectTableTotalData.PNG)
