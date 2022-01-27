@@ -76,4 +76,5 @@ def signout():
 
 
 # 3.啟動伺服器 Port-3000
-app.run(port=3000)
+if __name__ == '__main__':
+    app.run(port=3000, debug=True)
