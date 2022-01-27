@@ -2,6 +2,9 @@
 
 # WEeek5 MySQL : 
 
+
+# Part A. MySQL指令 
+
 ## 要求三：SQL CRUD : 
 
 ### 3.2 : 使用 SELECT 指令取得所有在 member 資料表中的會員資料。
@@ -47,7 +50,7 @@ cmd : SELECT COUNT(test2) FROM member;
 cmd : SELECT SUM(follower_count) FROM member;
 
 ### 4.3 取得 member 資料表中，所有會員 follower_count 欄位的平均數
-cmd : SELECT AVG(follower_count) FROM member;<br>
+cmd : SELECT AVG(follower_count) FROM member; <br>
   ![4-1~4-3](./img/Task4_1-3_count_sum_avg_MemberNumber.PNG)
 
 ### 4.4, 4.5 MAX & MIN : Extra(額外)
@@ -55,4 +58,8 @@ SELECT MAX(follower_count) FROM member;
 SELECT MIN(follower_count) FROM member;<br>
  ![image](./img/Task4_4-5countMemberNumber.PNG)
  
-## 要求五：SQL JOIN (Optional) :
+## 要求五：SQL JOIN (進行中, 待上傳) :
+<hr\>
+
+# Part B : Mysqldump 檔案 :  
+[data.sql](dump/) <hr/>
