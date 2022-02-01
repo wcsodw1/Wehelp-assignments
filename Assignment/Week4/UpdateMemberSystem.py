@@ -7,6 +7,7 @@
 # 1.Preprocessing :
 #   1.1 Import Module :
 from flask import Flask, render_template, request, redirect, session
+from sqlalchemy import null
 
 #   1.2 建立物件, 設定靜態路徑(ex:static)
 # 靜態default路徑已("/")為出發點, ex:static_url_path="/"
@@ -29,25 +30,52 @@ def front_page():
 # 設定網路權限取得管轄 methods = ["POST"], default為["GET"]
 @app.route("/signin", methods=["POST"])
 def signin():
-
-    # A.先藉由前端取得使用者輸入(信箱與密碼)
+    # 先藉由前端取得使用者輸入(信箱與密碼)
     email = request.form["email"]
+    print("email : ", email)
     password = request.form["password"]
+    print("password : ", password)
 
-    # B.失敗登入的介面 : 若找不到相對應資料,則登入失敗, 並導向錯誤頁面
-    if email and password != "test":
-        message = request.args.get("msg", "帳號 、或密碼輸入錯誤")
-        return render_template("error.html", message=message)  # error = 失敗頁面
+    # A.成功登入 : 信箱/密碼驗證成功, 儲存驗證的Data(Email. Password)放入Session中
+    if email and password == "test":
+        print("Enter")
+        session["varify_email"] = email
+        session["varify_password"] = password
+        return redirect("/member/")
 
-    # C.成功登入的話, 儲存驗證的Data(Email. Password)放入session中
-    session["varify_email"] = email
-    session["varify_password"] = password
-    return redirect("/member/")  # memeber = 成功頁面
+    # # B.失敗登入 : 若帳號或密碼未輸入, 則登入失敗, 並導向錯誤頁面
+    elif email == '' or password == '':
+        print("email or password is None")
+        session["varify_email_None"] = email
+        # print(session["varify_email_fail"])
+        session["varify_password_None"] = password
+        return redirect("/error")
+        # print("None")
+
+    #     session["varify_email_None"] = email
+    # # #     email = session["varify_email_None"]
+    #     session["varify_password_None"] = password
+    # # #     password = session["varify_password_None"]
+    #     return redirect("/error")
+
+    # # C.失敗登入2 : 若帳號密碼有誤, 則登入失敗, 並導向錯誤頁面
+    else:
+        print("Fail")
+    # #     password = session["varify_password_None"]
+        session["varify_email_None"] = email
+        session["varify_password_None"] = password
+        return redirect("/error")
+        # print("Fail")
+        # session["varify_email_fail"] = email
+        # # print(session["varify_email_fail"])
+        # session["varify_password_fail"] = password
+        # return redirect("/error")
 
 
 # 2.3 會員路由 :
 @app.route("/member/")
 def member():
+
     # A.若信箱(帳號)及密碼存在資料中(驗證成功的意思), 導向會員頁面
     if "varify_email" and "varify_password" in session:
         return render_template("member.html")
@@ -60,9 +88,31 @@ def member():
 # 2.4 失敗登入的介面 :  # (!!) 網址(error)後面加上 "?msg="" 後typing可自由加入更改輸入在頁面的文字內容
 @app.route("/error")
 def error():
-    # 這邊操作要在html中新增的文字, 並回傳至html
-    message = request.args.get("msg", "帳號 、或密碼輸入錯誤")
-    return render_template("error.html", message=message)
+
+    # if session["varify_email_fail"] or session["varify_password_fail"] != "test":
+    #     message = request.args.get("msg", "帳號 、或密碼輸入錯誤")
+    #     return render_template("error.html", message=message)
+    if session["varify_email_None"] == '' or session["varify_password_None"] == '':
+        print("None-")
+        message = request.args.get("msg", "請輸入帳號、密碼")
+        return render_template("error.html", message=message)
+
+    message2 = request.args.get("msg", "帳號 、或密碼輸入錯誤")
+    # print(session["varify_email_fail"])
+    return render_template("error.html", message=message2)  # error = 失敗頁面
+
+    # # A.失敗登入介面1 : 若輸入資料為空值, 在頁面中寫上請輸入帳號、密碼
+    # if "varify_email_fail" and "varify_password_fail" == '':
+    #     # 這邊操作會在html中新增的文字, 並回傳至html
+    #     print(session["varify_email_fail"])
+    #     message = request.args.get("msg", "帳號 、或密碼輸入錯誤")
+    #     print(session["varify_password_fail"])
+    #     return render_template("error.html", message=message)
+
+    # # B.失敗登入介面2 : 若找不到相對應資料,則登入失敗, 並導向錯誤頁面
+    # else:
+    #     message2 = request.args.get("msg", "請輸入帳號、密碼")
+    #     return render_template("error.html", message=message2)  # error = 失敗頁面
 
 
 # 2.5 signout(登出)功能網址 :
