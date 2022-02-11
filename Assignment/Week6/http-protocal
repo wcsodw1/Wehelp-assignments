@@ -1,0 +1,39 @@
+
+# HTTP Protocal 通訊協定 : 兩台電腦資訊的互相傳送
+- 兩個program之間的溝通
+----------------------
+## 特點 : 
+- 應用層通訊協定
+- 單向的通訊協定
+- 無狀態的通訊協定
+
+## 常見的通訊協定 : 
+- HTTP Protocal
+- Telent Protocal
+- SMTP Protocal
+-----------------
+
+## HTTP Request : 
+- Method 連線的方法
+- Path 路徑 
+- Request Headers 標頭(題)
+- Requset Body 要求的內容
+------------------------
+
+## HTTP Response :
+- Status Code 處理的結果代號
+- Response Headers 標頭們
+- Response Body 回應的內容
+-------------------------
+
+## 連線到Mysql的密碼 : 
+- 不要放在程式碼裡面 會被盜走
+
+
+
+
+
+
+
+
+

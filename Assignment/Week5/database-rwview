@@ -1,0 +1,9 @@
+
+
+# Primary Key? 
+# 特性 : 
+- 1.Unique & not Null
+- 2.Index
+
+- SELECT * FROM member WHERE id=3
+

@@ -1,0 +1,67 @@
+/* 標籤名稱選擇器*/
+
+/*1.歡迎光臨欄位設定*/
+.top {
+    background-color: #061853;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+    padding: 30px; /* title上下的背景框框高度 */
+}
+/*=============================================*/
+
+/*2.登入系統文字設定*/
+.loginText {
+    font-weight: bold;
+    font-size:25px;
+    text-align: center;
+    padding: 30px; /* title上下的背景框框高度 */
+}
+/*=============================================*/
+
+/*3.表單設計*/
+.form {
+    font-weight: bold;
+    font-size:20px;
+    text-align: center;
+}
+
+form {
+    line-height: 2.5em; /*設定文字欄行距*/
+}
+
+form>input,
+form>select {
+    padding: 7.5px 7.5px; /*設定文字框高,寬*/
+    border: 2px solid #888888; /*設定文字欄框框粗度*/
+    border-radius: 10px; /*設定文字欄框框圓弧度*/
+}
+
+form>.Done {
+    color: #008800;
+}
+
+form>input:valid+.Done {
+    display: inline;
+}
+
+form>input:invalid+.Done {
+    display: none;
+}
+
+.thick{
+    font-weight: bold;
+}
+/*=============================================*/
+
+
+/*4.RWD手機寬度設定 : 
+概念 : 限制寬度(600px小於電腦一般的寬度)即能限制手機版面(電腦 : 左中右 -->手機 : 上中下)
+*/
+@media screen and (max-width:600px) {
+    .content {
+        width: 100%;
+        text-align: center;
+    }
+}
