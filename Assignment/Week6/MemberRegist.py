@@ -44,7 +44,9 @@ def signup():
     cursor = db.cursor()
 
     # C.確認註冊帳號是否已被註冊
-    sql = "SELECT * FROM memeber_data"
+    # sql = "SELECT * FROM memeber_data" # 抓取table所有資料(不建議使用, 資料量大時運送效能會非常差)
+    sql = "SELECT ACCOUNT FROM memeber_data"
+
     cursor.execute(sql)
     results = cursor.fetchall()
     username_ = []
@@ -95,7 +97,8 @@ def signin():
     cursor = db.cursor()
 
     # C.搜尋資料庫, 若帳號密碼吻合登入
-    sql = "SELECT * FROM memeber_data"
+    # sql = "SELECT * FROM memeber_data"
+    sql = "SELECT NAME, ACCOUNT,PASSWORD  FROM memeber_data"
     cursor.execute(sql)
     results = cursor.fetchall()
     name_list = []
