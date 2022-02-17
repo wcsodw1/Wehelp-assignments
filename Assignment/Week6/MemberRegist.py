@@ -120,7 +120,7 @@ def signin():
 
     #   D2.若帳號密碼有任一個空值, 藉由query string輸出"請輸入帳號密碼"
     elif email == "" or password == "":
-        return redirect("/error?message=請輸入帳號密碼")
+        return redirect("/error?message=請輸入帳號密碼") # 就是一個路由(網址)
 
     #   D3.若帳號密碼錯誤, 藉由query string輸出"帳號密碼錯誤"
     else:
@@ -143,6 +143,7 @@ def member():
 # 3.3 失敗登入的介面 :
 @app.route("/error")
 def error():
+    # Query String與前端互動, 抓取後端signin判斷式的值放入前端error.html("")中
     msg = request.args.get("message", "")
     return render_template("error.html", message=msg)
 
