@@ -1,9 +1,11 @@
 
 # python MemberRegist.py
+# 讀取單一(效能較佳)會員資料的方法
 
 
 # 1.Preprocess :
 #   1.1 Import Library
+from tkinter import INSERT
 import pymysql
 from flask import Flask, render_template, request, redirect, session
 
@@ -43,28 +45,27 @@ def signup():
                          database='website')
     cursor = db.cursor()
 
-    # C.確認註冊帳號是否已被註冊
-    # sql = "SELECT * FROM memeber_data" # 抓取table所有資料(不建議使用, 資料量大時運送效能會非常差)
-    sql = "SELECT ACCOUNT FROM memeber_data"
+    # C.確認註冊帳號是否已被註冊 :
+    #   sql = "SELECT * FROM memeber_data" # 抓取table所有資料(不建議使用, 資料量大時運送效能會非常差)
+    #   cursor.execute(sql)
 
-    cursor.execute(sql)
-    results = cursor.fetchall()
-    username_ = []
-    #   C1.寫迴圈確認是否account已存在, 若已存在導入error路由
-    for row in results:
-        account = row[1]
-        print("已存在之帳號名稱 :", account)
+    # (!!關鍵SQL指令)用WHERE方法, 只單純取出符合條件的值(就不會一次要取出整個資料庫TABLE的資料)
+    cursor.execute("SELECT * FROM memeber_data WHERE ACCOUNT = %s", (Email,))
 
-        # 打印结果
-        print("account=%s" % (account))
-        if Email == account:
-            username_.append(Email)
-            print("Account already exist!")
-            message = request.args.get("msg", "信箱已被註冊")
-            return render_template("error.html", message=message)
+    #   C1.這邊的result代表已取出與使用者輸入相對應的帳號(email)值(名稱)
+    results = cursor.fetchone()  # cursor.fetchall()
+    print("results :", results)
+    print("results type :", type(results))
+    print("results=%s" % (results))
+
+    if results != None:
+        print("Account already exist!")
+
+        # C2.用Query String的方法處理要新增至前端html中的字串, message(變數名稱)
+        return redirect("/error?message=信箱已被註冊")
 
     # D.若帳號無被註冊, 註冊新帳號 :
-    #   D1.連接資料庫裏面的Table(ex : MEMEBER_DATA), 及裡面有的資料參數
+    #   D1.連接資料庫裏面的Table(ex : MEMEBER_DATA), 及Insert裡面有的資料參數
     sql = "INSERT INTO MEMEBER_DATA (NAME, ACCOUNT, PASSWORD) VALUES (%s,%s, %s)"
     # E.讀取A中的註冊資料, 放入
     val = (Name, Email, Password)
@@ -73,7 +74,6 @@ def signup():
     print(cursor.rowcount, "筆資料被記錄.")
 
     return redirect("/")
-    # 根據接收到的資料, 與資料庫互動
 
 
 '''================  PartB : Log In(Sign In)  ==============='''
@@ -96,34 +96,35 @@ def signin():
                          database='website')
     cursor = db.cursor()
 
-    # C.搜尋資料庫, 若帳號密碼吻合登入
-    # sql = "SELECT * FROM memeber_data"
-    sql = "SELECT NAME, ACCOUNT,PASSWORD  FROM memeber_data"
-    cursor.execute(sql)
-    results = cursor.fetchall()
-    name_list = []
-    username_list = []
-    password_list = []
+    # C.搜尋資料庫, 若帳號密碼吻合登入 :
+    # sql = "INSERT INTO MEMEBER_DATA (ACCOUNT, PASSWORD) VALUES (%s,%s)"
+    # val = (email, password)
+    # cursor.execute(sql, val)
 
-    for row in results:
-        Name_ = row[0]
-        account_ = row[1]
-        password_ = row[2]
+    # 一樣用WHERE方法(指讀取一筆資料)確認帳號密碼若吻合, 取出資料
+    cursor.execute(
+        "SELECT * FROM memeber_data WHERE account = %s and password= %s ", (email, password,))
 
-        print("account=%s" % (account_))
-        if email == account_ and password == password_:
-            name_list.append(Name_)
-            print("name_list :", name_list)
-            username_list.append(account_)
-            password_list.append(password_)
-            # A.儲存mail至session, 供後續登出系統(/signout)刪除使用
-            session["sess_email"] = email
-            # B.Query String : 擷取會員名稱放入, member.html中顯示(xxx，歡迎登入系統)
-            message = request.args.get("msg",  name_list)
-            return render_template("member.html", Name_args=message)
+    results = cursor.fetchone()
+    print("results :", results)
+    print("results type :", type(results))  # tuple
 
-    # D.若帳號密碼錯誤, 導入錯誤路由
-    return redirect("/error")
+    # D.判斷式
+    #   D1.若沒找到重複帳號密碼, 新增會員資料
+    if results != None:
+        # 1.儲存mail至session, 供後續登出系統(/signout)刪除使用
+        session["sess_email"] = email
+        # 2.Query String : 擷取會員名稱放入, member.html中顯示(xxx，歡迎登入系統)
+        message = request.args.get("msg", results[0])
+        return render_template("member.html", Name_args=message)
+
+    #   D2.若帳號密碼有任一個空值, 藉由query string輸出"請輸入帳號密碼"
+    elif email == "" or password == "":
+        return redirect("/error?message=請輸入帳號密碼")
+
+    #   D3.若帳號密碼錯誤, 藉由query string輸出"帳號密碼錯誤"
+    else:
+        return redirect("/error?message=帳號密碼錯誤")
 
 
 # 3.2 會員路由 :
@@ -142,8 +143,8 @@ def member():
 # 3.3 失敗登入的介面 :
 @app.route("/error")
 def error():
-    message = request.args.get("msg", "帳號 、或密碼輸入錯誤")
-    return render_template("error.html", msg=message)
+    msg = request.args.get("message", "")
+    return render_template("error.html", message=msg)
 
 
 # 3.4 signout(登出)功能網址 :

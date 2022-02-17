@@ -1,13 +1,13 @@
 
 # Python MemberSystem.py
 # python Flask Quickstart 教學(https://flask.palletsprojects.com/en/2.0.x/quickstart/#sessions)
+# 讀取所有會員資料的方法
 # ========================================================================= #
 
 
 # 1.Preprocessing :
 #   1.1 Import Module :
 from flask import Flask, render_template, request, redirect, session
-from sqlalchemy import null
 
 #   1.2 建立物件, 設定靜態路徑(ex:static)
 # 靜態default路徑已("/")為出發點, ex:static_url_path="/"
@@ -46,16 +46,12 @@ def signin():
     # # B.失敗登入1 : 若帳號或密碼未輸入, 則登入失敗, 並導向錯誤頁面
     elif email == '' or password == '':
         print("Email or Password is None")
-        session["varify_email_None"] = email
-        session["varify_password_None"] = password
-        return redirect("/error")
+        return redirect("/error?message=請輸入帳號密碼")
 
     # # C.失敗登入2 : 若帳號密碼有誤, 則登入失敗, 並導向錯誤頁面
     else:
         print("Fail")
-        session["varify_email_None"] = email
-        session["varify_password_None"] = password
-        return redirect("/error")
+        return redirect("/error?message=帳號密碼錯誤")
 
 
 # 2.3 會員路由 :
@@ -75,15 +71,17 @@ def member():
 # 2.4 失敗登入的介面 :  # (!!) 網址(error)後面加上 "?msg="" 後typing可自由加入更改輸入在頁面的文字內容
 @app.route("/error")
 def error():
-    # A.失敗介面1 : 若輸入資料為空值, 在頁面中寫上請輸入帳號、密碼
-    if session["varify_email_None"] == '' or session["varify_password_None"] == '':
-        print("None-")
-        message = request.args.get("msg", "請輸入帳號、密碼")
-        return render_template("error.html", message=message)
+    msg = request.args.get("message", "")
+    return render_template("error.html", message=msg)
+    # # A.失敗介面1 : 若輸入資料為空值, 在頁面中寫上請輸入帳號、密碼
+    # if session["varify_email_None"] == '' or session["varify_password_None"] == '':
+    #     print("None-")
+    #     message = request.args.get("msg", "請輸入帳號、密碼")
+    #     return render_template("error.html", message=message)
 
-    # B.失敗介面2 : 若找不到相對應帳號密碼,且無空值, 則登入失敗, 並導向錯誤頁面
-    message2 = request.args.get("msg", "帳號 、或密碼輸入錯誤")
-    return render_template("error.html", message=message2)  # error = 失敗頁面
+    # # B.失敗介面2 : 若找不到相對應帳號密碼,且無空值, 則登入失敗, 並導向錯誤頁面
+    # message2 = request.args.get("msg", "帳號 、或密碼輸入錯誤")
+    # return render_template("error.html", message=message2)  # error = 失敗頁面
 
 
 # 2.5 signout(登出)功能網址 :
