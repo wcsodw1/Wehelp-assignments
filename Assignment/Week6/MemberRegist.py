@@ -120,7 +120,7 @@ def signin():
 
     #   D2.若帳號密碼有任一個空值, 藉由query string輸出"請輸入帳號密碼"
     elif email == "" or password == "":
-        return redirect("/error?message=請輸入帳號密碼") # 就是一個路由(網址)
+        return redirect("/error?message=請輸入帳號密碼")  # 就是一個路由(網址)
 
     #   D3.若帳號密碼錯誤, 藉由query string輸出"帳號密碼錯誤"
     else:
@@ -132,8 +132,9 @@ def signin():
 def member():
     # A.若帳號(email)資料存在session, 進入會員頁面
     if "sess_email" in session:  # and "varify_password" in session:
-        print("sess_email yes")
-        return render_template("member.html")
+        # print("sess_email yes")
+        msg = session["sess_email"]
+        return render_template("member.html", Name_args=msg)
 
     # B.若會員資料未符合, 就算設定/member路由, 仍強制導回首頁
     else:

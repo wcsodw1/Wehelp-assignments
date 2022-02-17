@@ -72,6 +72,7 @@ def member():
 # 2.4 失敗登入的介面 :  # (!!) 網址(error)後面加上 "?msg="" 後typing可自由加入更改輸入在頁面的文字內容
 @app.route("/error")
 def error():
+    # 與前端互動, 抓取後端signin判斷式的值放入前端error.html("")中
     msg = request.args.get("message", "")
     return render_template("error.html", message=msg)
 
