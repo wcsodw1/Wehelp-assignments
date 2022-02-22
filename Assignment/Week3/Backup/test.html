@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>createTextNode example</title>
+    <script>
+        function addTextNode(text) {
+            var newtext = document.createTextNode(text),
+                p1 = document.getElementById("p1");
+
+            p1.appendChild(newtext);
+        }
+    </script>
+
+
+    <!-- <script>
+        let list = document.getElementById("list");
+        // let src = "https://cwpeng.github.io/README.md"
+
+        let src = "https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json"
+        fetch(src).then(function (response) {
+            console.log(response);
+            return response.text();
+
+        }).then(function (result) {
+            console.log("最終資料", result.toUpperCase()\);
+
+        });
+    </script> -->
+</head>
+
+<body>
+    <button onclick="addTextNode('YES!! ');">YES!</button>
+    <button onclick="addTextNode('NO!! ');">NO!</button>
+    <button onclick="addTextNode('WE CAN!! ');">WE CAN!</button>
+    <script>
+        // let list = document.getElementById("list");
+        // let src = "https://cwpeng.github.io/README.md"
+
+        let src = "https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json"
+        fetch(src).then(function (response) {
+            // 所有回傳的json資料
+            console.log(response);
+            // return response.text();
+            return response.json();
+
+        }).then(function (result) {
+
+            // 1.Get Data : 
+            // console.log("資料", result);
+            let EverySpotData = result.result.results;
+            // console.log("每個景點資料", EverySpotData);
+            for (let i = 0; i < EverySpotData.length; i++) {
+                file = EverySpotData[i];
+                // console.log("每個景點的詳細資料-" + i, file);
+            }
+
+            // A.取得景點名稱 :
+            let stitle_ = result.result.results[0].stitle; // 取景點名稱
+            console.log("1.景點名稱", stitle_);
+
+            // B.取得圖片網址 :
+            let file_ = result.result.results[0].file; // 取圖片網址string
+            // console.log("景點圖片網址", file_);
+            // console.log(typeof (file_)) // 確認資料型態以便操作 : type = string
+            let https = file_.split(':'); // 切割字串並取得https
+            let fileSplit = file_.split('https'); // 切割字串並取得https後面的值
+            // console.log("景點圖片網址切割", fileSplit);
+
+            // B2.切割後已變成List的型態, 就可以利用[]去取得split後的list順序資料
+            // console.log("fileSplit", fileSplit[1])
+            // console.log("https", https[0]) 
+
+            // B3.最終 : 合併字串
+            // let route = https[0] + fileSplit[1]
+            let route = "https" + fileSplit[1]
+            console.log("2.圖片網址(route) : ", route)
+
+            // for (let i = 0; i < EverySpotData.length; i++) {
+            //     file = stitle[i];
+            //     console.log("景點名稱-" + i, file);
+            // }
+
+            // 2.DOM 新增節點 : 
+            let text = document.createElement('div')
+            let textdata = document.createTextNode(stitle_);
+
+            let image = document.createElement('img')
+            let imagedata = document.createTextNode(route);
+
+            text.appendChild(textdata);
+            image.appendChild(imagedata);
+
+            // consele.log(image)
+
+        });
+    </script>
+
+
+    <hr />
+
+    <p id="div">addTextNode</p>
+</body>
+
+</html>

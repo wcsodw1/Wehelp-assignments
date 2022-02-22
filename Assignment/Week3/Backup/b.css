@@ -1,0 +1,14 @@
+/* 客製化 RESET */
+*, *::before, *::after { /* 全域 border box > 不用算內距 */
+	box-sizing: border-box;
+}
+img { 
+	/* 適應 & 伸縮 */
+	max-width: 100%; 
+	/* 適應 & 伸縮 */
+	/* height: auto; */
+	height: 210px;
+    /* 圖片會預留 2-3px 在下面 */
+    vertical-align: middle; 
+	object-fit: cover;
+}

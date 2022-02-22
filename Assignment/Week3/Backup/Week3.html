@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width-device-width, initial-scale=1.0"> <!-- 控制版面縮放 不讓版面隨意縮放-->
+    <meta charset="utf-8" /> <!-- 萬國碼 : 可打中文-->
+    <title>螢幕解析度的寬度 > 1200 像素</title>
+    <link rel="stylesheet" type="text/css" href="css/Layout_main.css" />
+
+    <!--Javascript-->
+    <!-- <script type="text/javascript">
+        var image = new Image();
+        image.onload = function () {
+            document.getElementById('img_link').setAttribute('src', this.src);
+        };
+        image.src = 'https://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000848.jpg';
+    </script>
+    <style type="text/css">
+        .box3 {
+            width: 270px;
+            height: 160px;
+        }
+    </style> -->
+    <script>
+        // let url = "https://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000848.jpg";
+        // fetch(url)
+        //     .then((response) => {
+        //         return response.blob();
+        //     })
+        //     .then((imageBlob) => {
+        //         let img = document.getElementById('result');
+        //         img.src = URL.createObjectURL(imageBlob);
+        //     })
+        // unsplash 上的圖片
+        // let url = 'https://images.unsplash.com/photo-1513313778780-9ae4807465f0?auto=format&fit=crop&w=634&q=80'
+        // fetch(url)
+        //     .then((response) => {
+        //         return response.blob();
+        //     })
+        //     .then((imageBlob) => {
+        //         let img = document.createElement('IMG')
+        //         document.querySelector('.newImg').appendChild(img);
+        //         // 將 blog 物件轉為 url
+        //         img.src = URL.createObjectURL(imageBlob);
+        //     })
+    </script>
+
+    <!-- Create Element -->
+    <script>
+        text = "hello"
+        function addTextNode(text) {
+            var newtext = document.createTextNode(text),
+                p1 = document.getElementById("p1");
+
+            p1.appendChild(newtext);
+            console.log(p1);
+
+            return p1;
+
+        }
+    </script>
+    <script>
+        function showImage() {
+            var h = document.getElementById("myH2");
+            if (h.style.display == "inline")
+                h.style.display = "none";
+            else
+                h.style.display = "inline";
+        }
+        const myList = document.querySelector('ul');
+        const myRequest = new Request('products.json');
+
+        fetch('https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json')
+            .then(function (response) {
+                // 抓response, 轉成JSON格式
+                return response.json();
+            })
+            .then(function (response) {
+                // 1.createElement/ appendChild
+                let image = document.createElement('IMG')
+                let text = document.response.text()('')
+                console.log(response);
+
+                // 2.Window Load 
+                // 處理 response
+                document.querySelector('.newImg').appendChild(img);
+
+            }).catch(function (err) {
+                // 錯誤處理
+
+            });
+    </script>
+
+    <script>
+        text = "hello"
+        function appendNode(text) {
+            let url = "https://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000848.jpg";
+            fetch(url)
+                .then((response) => {
+                    return response.blob();
+                })
+                .then((imageBlob) => {
+                    let img = document.getElementById('result');
+                    img.src = URL.createObjectURL(imageBlob);
+                })
+
+            var objNode = document.getElementById("myDiv");
+            var strText = "段落四";
+            var objNewNode = document.createElement("P");
+            var objTextNode = document.createTextNode(strText);
+            objNode.appendChild(objNewNode);
+            objNewNode.appendChild(objTextNode);
+        }
+
+    </script>
+
+    <!-- TEST 20220220 -->
+    <script>
+        let src = "https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json"
+        fetch(src).then(function (response) {
+            console.log(response);
+            return response.text();
+
+        }).then(function (result) {
+
+        });
+    </script>
+
+    <script>
+        function getMoreData() {
+            // console.log(results[4].file.toLowerCase())
+
+            console.log("前" + results.length)
+            count = 0
+            const contents = document.querySelector('.contents')
+            results.forEach((item, index, array) => {
+                count += 1
+                if (count <= 8) {
+                    let newList = document.createElement('li');
+                    let newDiv = document.createElement('div');
+                    let newParagraph = document.createElement('p');
+                    let newImage = document.createElement('img');
+
+                    newImage.src = item.file.toLowerCase().split(".jpg")[0] + ".jpg"
+
+                    newImage.alt = "假圖"
+
+                    let textNode = document.createTextNode(item.stitle);
+
+                    newParagraph.appendChild(textNode);
+                    newDiv.appendChild(newParagraph);
+                    newList.appendChild(newImage);
+                    newList.appendChild(newDiv);
+                    contents.appendChild(newList);
+                }
+            })
+            results.splice(0, 8)
+            console.log("後" + results.length)
+        }
+    </script>
+
+    <script>
+        document.body.onload = addElement;
+
+        function addElement() {
+            // create a new div element
+            // and give it some content
+            var newDiv = document.createElement("div");
+            var newContent = document.createTextNode("Hi there and greetings!");
+            newDiv.appendChild(newContent); //add the text node to the newly created div.
+
+            // add the newly created element and its content into the DOM
+            var currentDiv = document.getElementById("div1");
+            document.body.insertBefore(newDiv, currentDiv);
+        }
+    </script>
+
+</head>
+
+<body>
+    <!--============== 1. Region ==============-->
+    <div class="Top">
+        <div class="leftTop">My Website</div>
+        <div class="rightTop">
+            <div class="itemBox">搜尋</div>
+            <div class="itemBox">通知</div>
+            <div class="itemBox">註冊 </div>
+            <div class="itemBox">登入 </div>
+            <div class="hamber_icon"><img src="img/list.png" width=30px>
+            </div>
+        </div>
+    </div>
+
+    <!--============== 2.Welcome Home Region ==============-->
+    <div class="welcome_area">
+        <div class="welcome_text">Welcome to MyHome</div>
+    </div>
+
+    <!-- <div class="Flexbox"> -->
+    <main>
+        <div class="box">
+            <!-- <img id="newImg" width=270px height=160px> -->
+            <!-- <img id="p1" width=270px height=160px onload="addTextNode();"> -->
+            <img src="https://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000848.jpg" width=270px height=160px>
+            <div> 新北投溫泉區 </div>
+        </div>
+        <div class="box">
+            <!-- <img id="img_link" width=270px height=160px onload="showImage();"> -->
+            <img src="https://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000340.jpg" width=270px height=160p>
+            <div> 大稻埕碼頭 </div>
+
+        </div>
+        <div class="box">
+            <img src="https://www.travel.taipei/d_upload_ttn/sceneadmin/image/A0/B0/C0/D7/E150/F719/71eb4b56-f771-43bc-856c-2fb265a5cc6e.jpg"
+                width=270px height=160px>
+            <div> 士林官邸 </div>
+        </div>
+        <div class="box">
+            <img src="https://www.travel.taipei/d_upload_ttn/sceneadmin/image/A0/B0/C0/D14/E810/F21/48d66fbd-1ba3-4efd-837a-3767db5f52e0.jpg"
+                width=270px height=160px>
+            <div> 國立故宮博物館 </div>
+        </div>
+    </main>
+    <!-- <div id="myDiv">
+        <p id="myP2"><span>段落二</span></p>
+    </div> -->
+    <!-- <form>
+        <script>
+            var d = document.getElementById("myDiv");
+            var p2 = document.getElementById("myP2");
+        </script>
+        <input type="button" value="刪除元素1" onclick="deleteChild(d, p2);">
+    </form> -->
+    <main>
+        <div class="box">
+            <img src="https://www.travel.taipei/d_upload_ttn/sceneadmin/image/A0/B0/C1/D878/E726/F304/2d6e8b50-76ce-4b7e-a795-0357cd6f2b3e.jpg"
+                width=270px height=160p>
+            <div> 北投圖書館 </div>
+        </div>
+        <div class="box">
+            <img src="https://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000985.jpg" width=270px height=160p>
+            <div> 陽明山溫泉區 </div>
+        </div>
+        <div class="box">
+            <img src="https://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000979.jpg" width=270px height=160p>
+            <div> 八里左岸自行車道 </div>
+        </div>
+        <div class="box">
+            <img src="https://www.travel.taipei/d_upload_ttn/sceneadmin/image/A0/B0/C0/D11/E257/F345/546f42a1-cbfb-49fc-b4d8-c33f1c44190c.jpg"
+                width=270px height=160p>
+            <div> 大安森林公園 </div>
+        </div>
+    </main>
+
+    <h2 class="invisible" id="myH2">
+        <main>
+            <div class="box">
+                <img src="https://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000848.jpg" width=270px height=160px>
+                <div> 新北投溫泉區 </div>
+            </div>
+            <div class="box">
+                <img src="https://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000340.jpg" width=270px height=160p>
+                <div> 大稻埕碼頭 </div>
+            </div>
+            <div class="box">
+                <img src="https://www.travel.taipei/d_upload_ttn/sceneadmin/image/A0/B0/C0/D7/E150/F719/71eb4b56-f771-43bc-856c-2fb265a5cc6e.jpg"
+                    width=270px height=160px>
+                <div> 士林官邸 </div>
+            </div>
+            <div class="box">
+                <img src="https://www.travel.taipei/d_upload_ttn/sceneadmin/image/A0/B0/C0/D14/E810/F21/48d66fbd-1ba3-4efd-837a-3767db5f52e0.jpg"
+                    width=270px height=160px>
+                <div> 國立故宮博物館 </div>
+            </div>
+        </main>
+
+        <main>
+            <div class="box">
+                <img src="https://www.travel.taipei/d_upload_ttn/sceneadmin/image/A0/B0/C1/D878/E726/F304/2d6e8b50-76ce-4b7e-a795-0357cd6f2b3e.jpg"
+                    width=270px height=160p>
+                <div> 新北投圖書館 </div>
+            </div>
+            <div class="box">
+                <img src="https://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000985.jpg" width=270px height=160p>
+                <div> 陽明山溫泉區 </div>
+            </div>
+            <div class="box">
+                <img src="https://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000979.jpg" width=270px height=160p>
+                <div> 八里左岸自行車道 </div>
+            </div>
+            <div class="box">
+                <img src="https://www.travel.taipei/d_upload_ttn/sceneadmin/image/A0/B0/C0/D11/E257/F345/546f42a1-cbfb-49fc-b4d8-c33f1c44190c.jpg"
+                    width=270px height=160p>
+                <div> 大安森林公園 </div>
+            </div>
+        </main>
+    </h2>
+    <form>
+        <div class="Button_area">
+            <div class="Button_text"> <input type="button" onclick="showImage()" value="Load More"
+                    style="width:120px;height:40px;font-size:20px;">
+            </div>
+        </div>
+    </form>
+
+    <!-- <div id="myDiv">
+        <p onclick="appendNode(text)">段落一</p>
+        <p onclick="insertNode()">段落二</p>
+    </div>
+    <p id="p1">First line of paragraph.</p> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./all.js"></script>
+
+    <!--  </div> -->
+</body>
+
+
+</html>

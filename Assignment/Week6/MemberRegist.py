@@ -34,6 +34,7 @@ def signup():
     Name = request.form["name"]
     Email = request.form["email"]
     Password = request.form["password"]
+
     print("")
     print("===========")
     print("Test Member Regist data : ", Name, Email, Password)
@@ -115,8 +116,10 @@ def signin():
         # 1.儲存mail至session, 供後續登出系統(/signout)刪除使用
         session["sess_email"] = email
         # 2.Query String : 擷取會員名稱放入, member.html中顯示(xxx，歡迎登入系統)
-        message = request.args.get("msg", results[0])
-        return render_template("member.html", Name_args=message)
+        session["sess_Name"] = results[0]
+        print("session[sess_Name] :", session["sess_Name"])
+
+        return redirect("/member")
 
     #   D2.若帳號密碼有任一個空值, 藉由query string輸出"請輸入帳號密碼"
     elif email == "" or password == "":
@@ -132,8 +135,7 @@ def signin():
 def member():
     # A.若帳號(email)資料存在session, 進入會員頁面
     if "sess_email" in session:  # and "varify_password" in session:
-        # print("sess_email yes")
-        msg = session["sess_email"]
+        msg = session["sess_Name"]
         return render_template("member.html", Name_args=msg)
 
     # B.若會員資料未符合, 就算設定/member路由, 仍強制導回首頁
