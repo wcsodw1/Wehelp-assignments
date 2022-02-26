@@ -18,7 +18,6 @@ function getData() {
     axios.get('https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json')
         .then((response) => {
             results = response.data.result.results
-            console.log("前" + results.length)
             count = 0
             const contents1 = document.querySelector('.contents1')
             results.forEach((item, index, array) => {
@@ -30,7 +29,6 @@ function getData() {
                     let newImage = document.createElement('img');
 
                     newImage.src = item.file.split(".jpg")[0] + ".jpg"
-                    newImage.alt = "假圖"
 
                     let textNode = document.createTextNode(item.stitle);
 
@@ -42,7 +40,6 @@ function getData() {
                 }
             })
             results.splice(0, 8)
-            console.log("後" + results.length)
         })
         .catch((error) => {
             console.log(error)
@@ -53,7 +50,7 @@ function getData() {
 function getMoreData() {
     // console.log(results[4].file.toLowerCase())
 
-    console.log("前" + results.length)
+    console.log("剩餘張數(含目前顯示的8張)" + results.length)
     count = 0
     const contents1 = document.querySelector('.contents1')
     results.forEach((item, index, array) => {
@@ -78,7 +75,7 @@ function getMoreData() {
         }
     })
     results.splice(0, 8)
-    console.log("後" + results.length)
+    console.log("最終 剩餘張數" + results.length)
 }
 
 
