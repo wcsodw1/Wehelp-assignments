@@ -17,5 +17,6 @@ PRIMARY KEY(id) #  (!)用途說明 PRIMARY KEY(id) : 藉由id的設定以便能�
 
 -- INSERT INTO date_test (name, last_update1, last_update2)
 -- VALUES ("test1", NOW(), CURDATE());
+
 # 5.刪除整個(member)資料表 : - 
 -- DROP TABLE member_;
